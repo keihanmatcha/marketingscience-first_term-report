@@ -1,8 +1,13 @@
-\documentclass[dvipdfmx,ja=standard]{beamer} % 1行目をupLaTeX用に変更
-% \usepackage{luatexja} % upLaTeXでは不要なので削除（またはコメントアウト）
-% \renewcommand{\kanjifamilydefault}{\gtdefault} % 1行目の設定で自動でゴシックになるので不要
+\documentclass[dvipdfmx,ja=standard]{beamer}
 
 \usetheme[block=fill]{metropolis} % テーマの指定
+
+% === 文字化け・文字消失対策のための追加設定 ===
+\usepackage[deluxe,uplatex]{otf} % 高機能な日本語フォント処理
+\renewcommand{\kanjifamilydefault}{\gtdefault} % 日本語の既定をゴシック体に
+\font\zero=cmr10 at 0pt % Metropolisのフォントバグを回避するおまじない
+% =============================================
+
 \definecolor{katsuobushi}{HTML}{cd853f}
 
 \title{テストスライド}
@@ -11,13 +16,12 @@
 
 \begin{document}
 
-% 最初のタイトルスライド（\maketitle は通常独立したframeにします）
+% 最初のタイトルスライド
 \begin{frame}
     \maketitle
 \end{frame}
 
 \begin{frame}
-    % タイポ修正：alarted -> alerted
     \setbeamercolor{block title}{bg=katsuobushi}
     \setbeamercolor{block body}{bg=katsuobushi}
     \setbeamercolor{block title alerted}{bg=katsuobushi}
