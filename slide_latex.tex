@@ -1,0 +1,59 @@
+\documentclass[dvipdfmx,ja=standard]{beamer} % 1行目をupLaTeX用に変更
+% \usepackage{luatexja} % upLaTeXでは不要なので削除（またはコメントアウト）
+% \renewcommand{\kanjifamilydefault}{\gtdefault} % 1行目の設定で自動でゴシックになるので不要
+
+\usetheme[block=fill]{metropolis} % テーマの指定
+\definecolor{katsuobushi}{HTML}{cd853f}
+
+\title{テストスライド}
+\author{俺}
+\date{\today}
+
+\begin{document}
+
+% 最初のタイトルスライド（\maketitle は通常独立したframeにします）
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    % タイポ修正：alarted -> alerted
+    \setbeamercolor{block title}{bg=katsuobushi}
+    \setbeamercolor{block body}{bg=katsuobushi}
+    \setbeamercolor{block title alerted}{bg=katsuobushi}
+    \setbeamercolor{block body alerted}{bg=katsuobushi}
+    \setbeamercolor{block title example}{bg=katsuobushi}
+    \setbeamercolor{block body example}{bg=katsuobushi}
+    
+    \frametitle{一枚目のスライド}
+    普通に文中で\LaTeX コマンドが使用できます。（そらそう）
+    \begin{block}{ブロックのタイトル}
+        block環境を作成しbeginの第二引数にタイトルを渡すとこうなります。
+    \end{block}
+    \begin{alertblock}{アラート}
+        alertblockを指定するとこんな風になります。
+    \end{alertblock}
+    \begin{exampleblock}{例}
+        exampleblockを指定するとこうなります。
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{横並べ}
+    スライドで左右比較するときなどにこのようにします
+    \begin{columns}
+        \begin{column}{.4\linewidth}
+            \begin{block}{内容1}
+                内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1
+            \end{block}
+        \end{column}
+        \begin{column}{.4\linewidth}
+            \begin{block}{内容2}
+                内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2
+            \end{block}
+        \end{column}
+    \end{columns}
+    このとき各columnの幅は合計100\%にしてしまうとデザイン的にあんまよくないです
+\end{frame}
+
+\end{document}
